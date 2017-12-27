@@ -5,6 +5,8 @@
  */
 
 import React, { Component } from 'react';
+import MapView from 'react-native-maps';
+
 import {
   Platform,
   StyleSheet,
@@ -22,17 +24,18 @@ const instructions = Platform.select({
 export default class App extends Component<{}> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+        <View style={styles.container}>
+          <MapView
+              style={StyleSheet.absoluteFillObject}
+              initialRegion={{
+                latitude: 37.78825,
+                longitude: -122.4324,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+              }}
+          />
+          <Text>Hello you</Text>
+        </View>
     );
   }
 }
